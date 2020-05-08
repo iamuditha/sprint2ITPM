@@ -1,4 +1,5 @@
 class Pattern {
+int h = 4;
 public static void main(String[] args) {
 int rows = 5;
 for(int i = 1; i <= rows; ++i) {
@@ -7,5 +8,9 @@ System.out.print(j + " ");
 }
 System.out.println("");
 }
+public int test  = 45;
 }
+int gnkfv= 5;
+
+public int meth () {	}
 }

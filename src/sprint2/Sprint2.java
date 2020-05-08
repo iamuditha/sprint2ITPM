@@ -24,6 +24,8 @@ public class Sprint2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        variable v = new variable();
 
         //Read the file
         BufferedReader bufferReader = null;
@@ -40,8 +42,8 @@ public class Sprint2 {
                 //System.out.println(new size().numericalValueCount(contentLine));
                 //System.out.println(new size().stringLiteralsCount(contentLine));
                 //System.out.println(new method().methodCount(contentLine));
-                //System.out.println(new variable().variableCount(contentLine));
-                System.out.println(new size().identifierCount(contentLine));
+                System.out.println(v.variableCount(contentLine));
+                //System.out.println(new size().identifierCount(contentLine));
 
                 contentLine = bufferReader.readLine();
 
