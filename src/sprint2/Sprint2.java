@@ -24,7 +24,7 @@ public class Sprint2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         variable v = new variable();
 
         //Read the file
@@ -34,9 +34,19 @@ public class Sprint2 {
 
             //Read the File
             String contentLine = bufferReader.readLine().trim();
-            while (contentLine != null) {
+            while (contentLine != null && !contentLine.trim().startsWith("import") ) {
+
+                if (contentLine.trim().length() != 0) {
+                    System.out.println(contentLine);
+                    contentLine = contentLine.trim();
+
+                }
+                if (contentLine.contains("//")) {
+                    System.out.println(contentLine.substring(0, contentLine.indexOf("//")));
+                    contentLine = contentLine.substring(0, contentLine.indexOf("//"));
+
+                }               
                 //print the line
-                System.out.println(contentLine);
                 //System.out.println( new size().keywordCount(contentLine));
                 //System.out.println(new size().operatorCount(contentLine));
                 //System.out.println(new size().numericalValueCount(contentLine));

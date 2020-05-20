@@ -17,10 +17,21 @@ public class size {
     //List of Operators
     List<String> operators = Arrays.asList("+", "-", "*", "/", "%", "++", "--",
             "==", "!=", ">", "<", ">=", "<=",
-            "&&", "||", "!",
+            "&&", "||", "!", "&", "|", "^", ":",
             "|", "^", "~", "<<", ">>", ">>>", "<<<",
             ",", "->", ".", "::",
             "+=", "-=", "*=", "/=", "=", ">>>=", "|=", "&=", "%=", "<<=", ">>=", "^=");
+
+    //List of the keywords in C++
+    List<String> ckeywords = Arrays.asList("auto", "struct",
+            "break", "enum", "register", "typedef",
+            "extern", "return", "union", "const", "unsigned",
+            "continue", "signed", "void",
+            "default", "goto", "sizeof", "volatile", "static", "asm", "dynamic_cast", "namespace", "reinterpret_cast",
+            "explicit", "new", "static_cast", "catch", "false", "operator", "template",
+            "class", "friend", "private", "this", "const_cast", "inline", "public", "throw",
+            "delete", "mutable", "protected", "true", "try", "typeid", "typename", "using",
+            "using", "virtual", "char_t");
 
     //List of the keywords
     List<String> keywords = Arrays.asList("abstract", "assert",
@@ -54,7 +65,7 @@ public class size {
                 word = word + line.charAt(charNo);
             } else {
                 //System.out.println(word);
-                if (keywords.contains(word)) {
+                if (ckeywords.contains(word)) {
                     //System.out.println(word + " ");
                     nwk++;
                 }
@@ -88,6 +99,10 @@ public class size {
                 }
             }
             charNo++;
+        }
+        if (!"".equals(operator)) {
+            nop++;
+            operator = "";
         }
 
         return nop;
@@ -148,13 +163,13 @@ public class size {
             if (line.charAt(charNo) == '"') {
                 commaCount++;
             }
-            if (commaCount %2 == 0) {
+            if (commaCount % 2 == 0) {
                 if (Character.isLetter(line.charAt(charNo))) {
                     word = word + line.charAt(charNo);
                 } else {
                     //System.out.println(word);
-                    if (word !="" && !dataTypes.contains(word) && !controlStructures.contains(word) && !keywords.contains(word) && !other.contains(word)) {
-                        System.out.println(word + " ******** ");
+                    if (word != "" && !dataTypes.contains(word) && !controlStructures.contains(word) && !keywords.contains(word) && !other.contains(word)) {
+                        //System.out.println(word + " ******** ");
                         nid++;
                     }
 
