@@ -5,6 +5,7 @@
  */
 package sprint2;
 
+import static java.lang.Thread.sleep;
 import java.util.Arrays;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class size {
                 word = word + line.charAt(charNo);
             } else {
                 //System.out.println(word);
-                if (ckeywords.contains(word)) {
+                if (keywords.contains(word)) {
                     //System.out.println(word + " ");
                     nwk++;
                 }
@@ -81,30 +82,49 @@ public class size {
 
     }
 
-    public int operatorCount(String line) {
+    public int operatorCount(String line) throws InterruptedException {
 
         String operator = ""; //initial word
         int nop = 0; //operatorCount
         int charNo = 0; //character no of the line
-
+        int count = 0;
         while (line.length() > charNo) {
+
+            //System.out.println("char  "+ line.charAt(charNo));
+            if ((line.charAt(charNo)) == '\"') {
+                count = count + 1;
+                if (count%2 == 0){
+                    operator = "";
+                }
+                //System.out.println("1count "+ count);
+
+            }
 
             if (operators.contains(Character.toString(line.charAt(charNo)))) {
                 operator = operator + Character.toString(line.charAt(charNo));
-                //System.out.println(operator);
+                //System.out.println("operator " + operator);
+                //System.out.println("2count " + count);
             } else {
                 if (!"".equals(operator)) {
-                    nop++;
+                    //  System.out.println(operator);
                     operator = "";
+                    if (count % 2 == 0) {
+                        //System.out.println("3count " + count);
+
+                        nop++;
+                    }
+
                 }
+
             }
             charNo++;
+
         }
+
         if (!"".equals(operator)) {
             nop++;
             operator = "";
         }
-
         return nop;
 
     }

@@ -1,2 +1,1 @@
-public class nocc { 
-25 mx = (int) (Math.random() * 1000) % (size.width - (size.width / 10)); 0
+play(getCodeBase(), "sounds/thin.bell.au");

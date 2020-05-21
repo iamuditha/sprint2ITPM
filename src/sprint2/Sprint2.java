@@ -48,11 +48,11 @@ public class Sprint2 {
                 }               
                 //print the line
                 //System.out.println( new size().keywordCount(contentLine));
-                //System.out.println(new size().operatorCount(contentLine));
+                System.out.println(new size().operatorCount(contentLine));
                 //System.out.println(new size().numericalValueCount(contentLine));
                 //System.out.println(new size().stringLiteralsCount(contentLine));
                 //System.out.println(new method().methodCount(contentLine));
-                System.out.println(v.variableCount(contentLine));
+                //System.out.println(v.variableCount(contentLine));
                 //System.out.println(new size().identifierCount(contentLine));
 
                 contentLine = bufferReader.readLine();
